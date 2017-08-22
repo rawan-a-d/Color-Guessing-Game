@@ -1,0 +1,12 @@
+#container {
+	width: 600px;
+	margin: 0 auto; /* To center the div */
+}
+
+.square {
+	background-color: red;
+	height: 150px;
+	width: 160px;
+	display: inline-block; /* To make the div elements display inline */
+	margin: 6px;
+}
