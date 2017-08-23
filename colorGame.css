@@ -1,3 +1,21 @@
+body {
+	margin: 0;
+	text-align: center;
+}
+
+#bigHeader {
+	height: 140px;
+	background-color: rgb(139, 32, 27);
+	color: white;
+	font-size: 60px;
+	padding: 5px;
+	/* font-weight: normal; */
+}
+
+#RGB-color {
+	font-size: 50px;
+}
+
 #container {
 	width: 600px;
 	margin: 0 auto; /* To center the div */
@@ -5,8 +23,9 @@
 
 .square {
 	background-color: red;
-	height: 150px;
-	width: 160px;
-	display: inline-block; /* To make the div elements display inline */
-	margin: 6px;
+	height: 170px;
+	width: 30%;
+	float: left; /* To make the div elements display inline */
+	margin: 1.66%;
+	border-radius: 30px;
 }
