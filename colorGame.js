@@ -1,5 +1,7 @@
 var squares = document.querySelectorAll('.square');
 var correctColor = document.getElementById('RGB-color');
+var message = document.getElementById('message')
+var bigHeader = document.getElementById('bigHeader')
 var colors = [];
 
 colorsSetter()
@@ -34,14 +36,26 @@ function PressedColorChecker(){
 		// add a click event listener for each square
 		square.addEventListener('click', function(){
 			// compare if the clicked one is the correct one
-			// if so alert correct
+			// if so
 			if(this.style.backgroundColor === correctColor.textContent){
-				alert('Correct')
+				win()
 			}
-			// if not remove it
+			// if not remove it and display message try again
 			else {
-				this.style.backgroundColor = 'white'
+				message.textContent = 'Try again';
+				this.style.backgroundColor = 'white';
 			}
 		})
+	})
+}
+
+function win(){
+	// display message correct
+	message.textContent = 'Correct'
+	// change the background color bigHeader to the correct color
+	bigHeader.style.backgroundColor = correctColor.textContent;
+	squares.forEach(function(square){
+		// change the background color for all squares and bigHeader to the correct color
+		square.style.backgroundColor = correctColor.textContent;
 	})
 }
