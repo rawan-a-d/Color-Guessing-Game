@@ -1,12 +1,13 @@
 var squares = document.querySelectorAll('.square');
 var correctColor = document.getElementById('RGB-color');
-var message = document.getElementById('message')
-var bigHeader = document.getElementById('bigHeader')
+var message = document.getElementById('message');
+var bigHeader = document.getElementById('bigHeader');
+var resetBTN = document.getElementById('resetBTN');
 var colors = [];
 
-colorsSetter()
-CorrectColorPicker()
-PressedColorChecker()
+colorsSetter();
+correctColorPicker();
+pressedColorChecker();
 // make a function to generate random colors
 function randomColorsMaker(){
     var red = Math.floor((Math.random() * 256));
@@ -26,12 +27,12 @@ function colorsSetter(){
 	});
 }
 
-function CorrectColorPicker(){
+function correctColorPicker(){
 	// Choose a random color as the correct one and display it in the smallHeader
 	correctColor.textContent = colors[Math.floor((Math.random() * colors.length))]
 }
 
-function PressedColorChecker(){
+function pressedColorChecker(){
 	squares.forEach(function(square){
 		// add a click event listener for each square
 		square.addEventListener('click', function(){
@@ -51,11 +52,29 @@ function PressedColorChecker(){
 
 function win(){
 	// display message correct
-	message.textContent = 'Correct'
+	message.textContent = 'Correct';
 	// change the background color bigHeader to the correct color
 	bigHeader.style.backgroundColor = correctColor.textContent;
+	// change the text on reset Button to play again
+	resetBTN.textContent = 'Play again?';
 	squares.forEach(function(square){
 		// change the background color for all squares and bigHeader to the correct color
 		square.style.backgroundColor = correctColor.textContent;
 	})
 }
+
+function reset(){
+	// empty colors array
+	colors = []
+	colorsSetter();
+	correctColorPicker();
+	pressedColorChecker();
+	// Set header background-color back to noraml
+	bigHeader.style.backgroundColor = 'rgb(139, 32, 27)';
+	// change the text on reset Button to New colors
+	resetBTN.textContent = 'New colors';		
+}
+
+resetBTN.addEventListener('click', function(){
+	reset()
+})
