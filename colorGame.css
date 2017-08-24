@@ -43,6 +43,7 @@ button {
 }
 
 #container {
+	padding-top: 15px;
 	width: 600px;
 	margin: 0 auto; /* To center the div */
 }
@@ -53,4 +54,10 @@ button {
 	float: left; /* To make the div elements display inline */
 	margin: 1.66%;
 	border-radius: 30px;
+}
+
+.fadeOut {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s 0.6s, opacity 0.6s linear;
 }
