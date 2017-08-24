@@ -8,6 +8,7 @@ var colors = [];
 colorsSetter();
 correctColorPicker();
 pressedColorChecker();
+
 // make a function to generate random colors
 function randomColorsMaker(){
     var red = Math.floor((Math.random() * 256));
@@ -44,7 +45,7 @@ function pressedColorChecker(){
 			// if not remove it and display message try again
 			else {
 				message.textContent = 'Try again';
-				this.style.backgroundColor = 'white';
+				this.style.backgroundColor = '#d4d2d2';
 			}
 		})
 	})
@@ -60,21 +61,21 @@ function win(){
 	squares.forEach(function(square){
 		// change the background color for all squares and bigHeader to the correct color
 		square.style.backgroundColor = correctColor.textContent;
-	})
+	});
 }
 
 function reset(){
 	// empty colors array
-	colors = []
+	colors = [];
 	colorsSetter();
 	correctColorPicker();
 	pressedColorChecker();
 	// Set header background-color back to noraml
 	bigHeader.style.backgroundColor = 'rgb(139, 32, 27)';
 	// change the text on reset Button to New colors
-	resetBTN.textContent = 'New colors';		
+	resetBTN.textContent = 'New Colors';		
 }
 
 resetBTN.addEventListener('click', function(){
-	reset()
-})
+	reset();
+});
