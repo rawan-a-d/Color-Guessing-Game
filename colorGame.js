@@ -3,7 +3,11 @@ var correctColor = document.getElementById('RGB-color');
 var message = document.getElementById('message');
 var bigHeader = document.getElementById('bigHeader');
 var resetBTN = document.getElementById('resetBTN');
+var hardBTN = document.getElementById('hardBTN')
+var easyBTN = document.getElementById('easyBTN')
+var hiddenSquares = document.querySelectorAll('.hide')
 var colors = [];
+var level;
 
 colorsSetter();
 correctColorPicker();
@@ -28,9 +32,9 @@ function colorsSetter(){
 	});
 }
 
-function correctColorPicker(){
+function correctColorPicker(squareNum){
 	// Choose a random color as the correct one and display it in the smallHeader
-	correctColor.textContent = colors[Math.floor((Math.random() * colors.length))]
+	correctColor.textContent = colors[Math.floor((Math.random() * squareNum))]
 }
 
 function pressedColorChecker(){
@@ -51,6 +55,38 @@ function pressedColorChecker(){
 	})
 }
 
+// add event listener to the hard button
+hardBTN.addEventListener('click', function(){
+	// remove class active from the easy button
+	easyBTN.classList.remove('active')
+	// add class active to the hard button
+	hardBTN.classList.add('active')
+	// Show the hidden squares
+	hiddenSquares.forEach(function(hiddenSquare){
+		hiddenSquare.style.visibility = 'visible'
+	})
+	colors = [];
+	colorsSetter();
+	correctColorPicker(6);
+	pressedColorChecker();
+})
+
+// add event listener to the hard button
+easyBTN.addEventListener('click', function(){
+	// remove class active from the hard button
+	hardBTN.classList.remove('active')
+	// add class active to the easy button
+	easyBTN.classList.add('active')
+	colors = [];
+	colorsSetter();
+	// hide the second three squares
+	hiddenSquares.forEach(function(hiddenSquare){
+		hiddenSquare.style.visibility = 'hidden'
+	})
+	correctColorPicker(3);
+	pressedColorChecker();
+})
+
 function win(){
 	// display message correct
 	message.textContent = 'Correct';
@@ -65,10 +101,16 @@ function win(){
 }
 
 function reset(){
+	if(easyBTN.classList.value === 'active'){
+		squareNum = 3
+	}
+	else {
+		squareNum = 6
+	}
 	// empty colors array
 	colors = [];
 	colorsSetter();
-	correctColorPicker();
+	correctColorPicker(squareNum);
 	pressedColorChecker();
 	// Set header background-color back to noraml
 	bigHeader.style.backgroundColor = 'rgb(139, 32, 27)';

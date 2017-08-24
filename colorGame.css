@@ -17,7 +17,7 @@ body {
 }
 
 #smallHeader {
-	background-color: gray;
+	background-color: white;
 	height: 30px;
 }
 
@@ -25,7 +25,7 @@ button {
 	font-weight: bold;
 	color: rgb(139, 32, 27);
 	border: none;
-	background-color: gray;
+	background-color: white;
 	outline: none;
 	height: 100%;
 	margin: 0;
