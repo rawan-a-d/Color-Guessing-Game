@@ -1,63 +1,77 @@
 body {
-	margin: 0;
-	text-align: center;
-	background-color: #d4d2d2;
+    margin: 0;
+    text-align: center;
+    background-color: #d4d2d2;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 #bigHeader {
-	background-color: rgb(139, 32, 27);
-	font-size: 60px;
-	padding: 30px;
-	text-transform: uppercase;
-	color: white;
+    background-color: rgb(139, 32, 27);
+    font-size: 60px;
+    padding: 20px 0;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1.1;
 }
 
 #RGB-color {
-	font-size: 50px;
+    font-size: 50px;
 }
 
 #smallHeader {
-	background-color: white;
-	height: 30px;
+    background-color: white;
+    height: 30px;
 }
 
 button {
-	font-weight: bold;
-	color: rgb(139, 32, 27);
-	border: none;
-	background-color: white;
-	outline: none;
-	height: 100%;
-	margin: 0;
-	font-size: 18px;
+    font-weight: 700;
+    color: rgb(139, 32, 27);
+    border: none;
+    background-color: white;
+    outline: none;
+    height: 100%;
+    margin: 0;
+    font-size: inherit;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(139, 32, 27);
 }
 
 .active {
-	background-color: rgb(139, 32, 27);
-	color: white;
+    color: white;
+    background-color: rgb(139, 32, 27);
 }
 
 #message {
-	width: 28%;
-	display: inline-block;
+    width: 28%;
+    display: inline-block;
+    color: rgb(139, 32, 27);
 }
 
 #container {
-	padding-top: 15px;
-	width: 600px;
-	margin: 0 auto; /* To center the div */
+    width: 600px;
+    margin: 20px auto;
+    /* To center the div */
 }
 
 .square {
-	height: 170px;
-	width: 30%;
-	float: left; /* To make the div elements display inline */
-	margin: 1.66%;
-	border-radius: 30px;
+    padding-bottom: 30%;
+    width: 30%;
+    float: left;
+    /* To make the div elements display inline */
+    margin: 1.66%;
+    border-radius: 20%;
 }
 
 .fadeOut {
-	visibility: hidden;
-	opacity: 0;
-	transition: visibility 0s 0.6s, opacity 0.6s linear;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.6s, opacity 0.6s linear;
 }

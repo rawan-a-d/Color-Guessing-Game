@@ -1,3 +1,5 @@
+var colors = [];
+var squareNum = 6;
 var bigHeader = document.getElementById('bigHeader');
 var correctColor = document.getElementById('RGB-color');
 var resetBTN = document.getElementById('resetBTN');
@@ -6,8 +8,6 @@ var easyBTN = document.getElementById('easyBTN');
 var message = document.getElementById('message');
 var squares = document.querySelectorAll('.square');
 var hiddenSquares = document.querySelectorAll('.hide');
-var colors = [];
-var squareNum = 6;
 
 init();
 
@@ -46,17 +46,20 @@ function colorsSetter(squareNum) {
 }
 
 function correctColorPicker(squareNum) {
+    // Make a random number
+    var randomNum = Math.floor((Math.random() * squareNum));
     // Choose a random color as the correct one and display it in the smallHeader
-    correctColor.textContent = colors[Math.floor((Math.random() * squareNum))];
+    correctColor.textContent = colors[randomNum]
 }
 
 function pressedColorChecker() {
     squares.forEach(function(square) {
         // add a click event listener for each square
         square.addEventListener('click', function() {
-            // compare if the clicked one is the correct one
-            // if so
-            if (this.style.backgroundColor === correctColor.textContent) {
+            var clickedColor = this.style.backgroundColor;
+            // compare the clicked one to the correct one
+            // if they're the same
+            if (clickedColor === correctColor.textContent) {
                 win();
             }
             // if not fade it out and display message try again
@@ -114,11 +117,8 @@ function win() {
 }
 
 function reset() {
-    if (easyBTN.classList.value === 'active') {
-        squareNum = 3;
-    } else {
-        squareNum = 6;
-    }
+    // Check which button is clicked
+    easyBTN.classList.value === 'active' ? squareNum = 3 : squareNum = 6;
     // empty colors array
     colors = [];
     squares.forEach(function(square) {
